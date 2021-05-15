@@ -23,6 +23,11 @@
 -- Insercion Contexts
 -- Insercion Languages
 -- Insercion TransTypes
+
+-- 15/05/2021
+-- Summary:
+-- Insercion de un Game_Session
+-- Insersion de juego (GTA V)
 -- ------------------------------------
 
 -- -------------------------------
@@ -218,8 +223,53 @@ INSERT INTO TransTypes(name) VALUES
 ('Buy'), ('Renewal'), ('Subscription');
 
 -- -----------------------------
--- Creacion de un juego (Desarrollo)
+-- Creacion de un juego
 -- -----------------------------
+
+-- Game
+INSERT INTO Games(`name`, `description`, iconURL, URL, enabled, ESRB_ClasificationId, idGenderType) VALUES
+('Grand Theft Auto V',
+'When a young street hustler, a retired bank robber and a terrifying psychopath land themselves in trouble, they must pull off a series of dangerous heists to survive in a city in which they can trust nobody',
+'www.img.com/gtavlogo',
+'www.downloadgtav.com',
+1,
+4,
+2);
+
+-- The publisher of the game
+INSERT INTO Publishers(`name`,company_name, countryId, mail, websiteURL) VALUES
+('Rockstar Games','Rockstar North',1,'inforockstar@mail.com','www.rockstargamesnorth.com');
+
+-- The sales specs
+INSERT INTO GameSaleInfo (gameId, publisherId, retailPrice, currencySymbol, discount, publisher_percentage,
+isCurrentRunning, posttime, `checksum`, ipAddress, username) VALUES
+(1, 6, 29.99, 'USD', 0.20, 0.70, 1, CURRENT_TIMESTAMP(), 
+SHA2(CONCAT(CURRENT_TIMESTAMP(),' ','121.65.18.64',' ','admin12'),256), '121.65.18.64', 'admin12');
+
+-- Game specs
+INSERT INTO GameOwnSpecs (`name`, `description`, Gameid) VALUES
+('LAUNCH YOUR CRIMINAL EMPIRE', 'Launch business ventures from your Maze Bank West Executive Office', 1),
+('A FLEET OF POWERFUL VEHICLES', 'Tear through the streets with a range of 10 high performance vehicles', 1);
+
+-- platforms of the game
+INSERT INTO Game_Platforms (Gameid, idPlatformType) VALUES
+(1,3),(1,4),(1,5),(1,6);
+
+-- badges of the game
+INSERT INTO Badges (`name`, Gameid, iconURL, miniDescription, badge_levelId) VALUES
+('Explorer', 1, 'www.img.com/gtav/badge1', 'Discover the whole city. You do not need gps', 2),
+('high-class criminal', 1, 'www.img.com/gtav/badge2', 'complete the history mode', 3);
+
+-- -----------------------------
+-- Insercion de un Game_Session
+-- -----------------------------
+
+INSERT INTO Game_Sessions (userid, Gameid, `start`, `finish`, favorite, isPublic, deleted, captureURL)
+VALUES (1, 1, '2021-05-15 06:02:20', '2021-05-15 06:02:20', 0, 0, 0, 'www.img.com/gs1');
+
+-- -------------------------
+-- Para pruebas
+-- -------------------------
 
 SELECT * FROM Games;
 
@@ -228,3 +278,13 @@ SELECT * FROM ESRB_Clasification;
 SELECT * FROM GenderType;
 
 SELECT * FROM Publishers;
+
+SELECT * FROM GameSaleInfo;
+
+SELECT * FROM GameOwnSpecs;
+
+SELECT * FROM Game_Platforms;
+
+SELECT * FROM Badges;
+
+SELECT * FROM PlatformsType;

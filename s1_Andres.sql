@@ -16,6 +16,13 @@
 -- Insercion de Item_Category
 -- Payment Status
 -- Anniadimos algunos pictures y las ligamos con su usuario
+-- Insercion EntityTypes
+-- Insercion Severity
+-- Insercion App Sources
+-- Insercion Log Types
+-- Insercion Contexts
+-- Insercion Languages
+-- Insercion TransTypes
 -- ------------------------------------
 
 -- -------------------------------
@@ -163,6 +170,52 @@ VALUES (0, '2021-05-14 22:10:59', 2, 1);
 
 INSERT INTO picturePerPerson(`default`, postTime, pictureId, userid)
 VALUES (1, '2021-05-14 22:11:12', 3, 1);
+
+-- -------------------------
+-- Insercion EntityTypes
+-- -------------------------
+INSERT INTO EntityTypes(name) VALUES
+('user'), ('invoice'), ('order'), ('publisher');
+
+-- --------------------------
+-- Insercion Severity
+-- --------------------------
+INSERT INTO Severity(name) VALUES
+('info'), ('error'), ('warning'), ('high-risk');
+
+-- -------------------------
+-- Insercion App Sources
+-- -------------------------
+INSERT INTO AppSources(name) VALUES
+('customer_service'), ('shopping'), ('social'), ('billing');
+
+-- -------------------------
+-- Insercion Log Types
+-- -------------------------
+INSERT INTO LogTypes(name) VALUES
+('login'), ('logout'), ('login_failed'),
+('view_reports'), ('permission_remove'), ('size_change'), ('alter_sensitive_info');
+
+-- -------------------------
+-- Insercion Contexts
+-- -------------------------
+INSERT INTO Contexts(name) VALUES
+('users'), ('reviews'), ('descriptions'),
+('titles'), ('systemMessages'), ('transactions');
+
+-- -------------------------
+-- Insercion Languages
+-- -------------------------
+INSERT INTO Languages(name, culture) VALUES
+('english', 'en-us'), ('spanish', 'es-cr'), ('german',  'de-dt'),
+('russian', 'ru-ru'), ('japanese', 'ja-jp'), ('chinese', 'zh-chi');
+
+-- -----------------------
+-- Insercion TransTypes
+-- ----------------------
+
+INSERT INTO TransTypes(name) VALUES
+('Buy'), ('Renewal'), ('Subscription');
 
 -- -----------------------------
 -- Creacion de un juego (Desarrollo)

@@ -50,9 +50,8 @@ CALL spCursor();						-- llama al cursor
 -- Cuando inserto la imagen, inmediatamente deberia insertarlo
 -- en imagenes por usuario
 -- -------------------------------
-
-SET @ownerUser = 2;
-INSERT INTO pictures(pictureURL, deleted) VALUES ('www.img.com/u2ph2',0);
+SET @ownerUser = 3;
+INSERT INTO pictures(pictureURL, deleted) VALUES ('www.img.com/u3ph1',0);
 
 DELIMITER //
 CREATE TRIGGER TR_PicturesUser_afterInsert AFTER INSERT	-- creacion, le debo indicar un momento
@@ -67,7 +66,7 @@ SELECT * FROM picturePerPerson;
 
 -- -------------------------------
 -- 15.C Substring
--- Suponga que un se quiere listar de manera resumida,
+-- Suponga que se quiere listar de manera resumida,
 -- las plataformas, de la siguiente manera:
 -- Windows Vista/7/8/10, macOS X 10/ 11, Linux
 -- -------------------------------

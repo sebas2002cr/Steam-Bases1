@@ -8,6 +8,7 @@ app.get("/regiterUser", (req, res,next) => {
 });
 
 app.post("/saludarTo", (req, res,next) => {
+    if(req.query.filter)
     res.json({ message: saludos[Math.trunc(Math.random()*saludos.length)]+ " "+req.body.quien});
 });
 

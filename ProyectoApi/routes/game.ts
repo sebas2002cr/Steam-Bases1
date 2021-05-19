@@ -24,7 +24,7 @@ connection.query('SELECT 1 + 1 AS solution', function (error:any, results:any, f
 });
 
 connection.end();
-
+/*
 //Create
 //Ejemplo: POST http://localhost:8080/item
 app.post('/item', function(req, res) {
@@ -41,6 +41,6 @@ app.get('/item', function(req, res, next) {
     }
     res.send('Get all');
     console.log('Get all');
-  });
+  });*/
 
 export { app as gamerouter };

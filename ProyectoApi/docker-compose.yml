@@ -1,0 +1,46 @@
+version: "3.2"
+services:
+  nodejs:
+    build: 
+      context: .
+    image: proyectoapi
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=progra
+      - MYSQL_USER=progra
+      - MYSQL_PASS=progra
+      - MYSQL_DB=progra
+    volumes:
+      - ./www/:/var/www/html/
+    ports:
+      - "4000:3000"
+    container_name: vigorous_goldwasser
+  mysql:
+    image: mysql:5.7
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=progra
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=caso3
+    container_name: mysql_bases1
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    ports:
+      - "3306:3306"
+    environment:
+      - PMA_HOST=moe-mysql-app
+      - PMA_PORT= 3306
+    volumes:
+      - /sessions
+    container_name: moe-phpmyadmin-app
+networks:
+  frontend:
+  backend:

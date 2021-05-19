@@ -50,8 +50,8 @@ CALL spCursor();						-- llama al cursor
 -- Cuando inserto la imagen, inmediatamente deberia insertarlo
 -- en imagenes por usuario
 -- -------------------------------
-SET @ownerUser = 3;
-INSERT INTO pictures(pictureURL, deleted) VALUES ('www.img.com/u3ph1',0);
+SET @ownerUser = 4;
+INSERT INTO pictures(pictureURL, deleted) VALUES ('www.img.com/u4ph1',1);
 
 DELIMITER //
 CREATE TRIGGER TR_PicturesUser_afterInsert AFTER INSERT	-- creacion, le debo indicar un momento

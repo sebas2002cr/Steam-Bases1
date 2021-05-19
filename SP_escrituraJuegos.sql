@@ -29,12 +29,17 @@ IN Username varchar(64),
 IN IdPlatform int
 )
 BEGIN
-INSERT INTO Games (`name`, `description`,iconURL, URL,enabled, ESRB_ClasificationId, idGenderType )
-VALUES(Game_name,Descriptiom,IconUrl,Url, ESRB, IdGenderType ); 
-INSERT INTO GameSaleInfo(Gameid,publisherId,retailPrice,currencySymbol,discount,publisher_percentage,isCurrentRunning,posttime,checksum,ipAddress,username)
-VALUES(IdGame,Idpublisher, Price, Currency, Discount, PuPercentage, Running, Posttime, Checksum, IpAddress , Username);
-INSERT INTO Game_Platforms (Gameid, idPlatformType) 
-VALUES(IdGame, IdPlatform);
+	SET autocommit = 0;
+	START TRANSACTION;
+    
+		INSERT INTO Games (`name`, `description`,iconURL, URL,enabled, ESRB_ClasificationId, idGenderType )
+		VALUES(Game_name,Descriptiom,IconUrl,Url, ESRB, IdGenderType ); 
+		INSERT INTO GameSaleInfo(Gameid,publisherId,retailPrice,currencySymbol,discount,publisher_percentage,isCurrentRunning,posttime,checksum,ipAddress,username)
+		VALUES(IdGame,Idpublisher, Price, Currency, Discount, PuPercentage, Running, Posttime, Checksum, IpAddress , Username);
+		INSERT INTO Game_Platforms (Gameid, idPlatformType) 
+		VALUES(IdGame, IdPlatform);
+
+	COMMIT;
 
 END//
 

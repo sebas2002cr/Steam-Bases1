@@ -2,7 +2,7 @@
 -- Script #4 - Andres
 -- 15/05/2021
 -- Summary:
--- Creacion de dos vistas utiles para el sistema
+-- Creacion de vistas utiles para el sistema
 -- -----------------------------------
 
 -- ------------------------------------------
@@ -11,7 +11,7 @@
 -- seria como una consulta hecha por admins
 -- ------------------------------------------
 
--- DROP VIEW IF EXISTS view_GameSalesPublisher; -- en caso de que ya existiera
+DROP VIEW IF EXISTS view_GameSalesPublisher; -- en caso de que ya existiera
 
 CREATE VIEW view_GameSalesPublisher
 AS
@@ -26,7 +26,7 @@ SELECT * FROM view_GameSalesPublisher;
 -- nombre del usuario, del juego, cuando lo compro y el numero de orden
 -- ----------------------------------------------------------------------
 
--- DROP VIEW IF EXISTS view_GameSalesPublisher; -- en caso de que ya existiera
+DROP VIEW IF EXISTS view_userGames; -- en caso de que ya existiera
 
 CREATE VIEW view_userGames
 AS
